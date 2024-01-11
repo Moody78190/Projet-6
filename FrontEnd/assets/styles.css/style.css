@@ -150,9 +150,16 @@ li:hover {
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 }
-.button-filter:hover {
+/* Add styles for active button state */
+.button-filter.active {
 	background: #1D6154;
-	color: white; /* Changement de la couleur du texte au survol */
+	color: white;
+  }
+  
+  /* Remove the background and color change on hover for active buttons */
+  .button-filter.active:hover {
+	background: #1D6154;
+	color: white;
   }
 .gallery {
 	width: 100%;
