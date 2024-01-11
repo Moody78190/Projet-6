@@ -164,7 +164,7 @@ form{
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 43%;
+    left:490px;
     top: 105%;
     color: #3D3D3D;
     font-family: Work Sans;
@@ -174,7 +174,7 @@ form{
     line-height: normal;
     text-decoration-line: underline;
     border: none;
-    background-color: #FFF;
+    background-color: transparent;
 
     
 }
