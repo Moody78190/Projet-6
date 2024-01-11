@@ -159,12 +159,12 @@ form{
     font-size: 16px;
   }
 
- #forgotPasswordBtn{
+  #forgotPasswordBtn{
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    left:490px;
+    left:399px;
     top: 105%;
     color: #3D3D3D;
     font-family: Work Sans;

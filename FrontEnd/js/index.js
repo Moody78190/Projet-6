@@ -1,5 +1,5 @@
-import { galleryContainer, filterContainer } from '../components/domLinker.js';
-import { getWorks, getCategories, } from '../components/api.js';
+import { galleryContainer, filterContainer } from './components/domLinker.js';
+import { getWorks, getCategories, } from './components/api.js';
 
 const createCategories = (data) => {
   // Create the "All" button and set it as active by default
@@ -75,5 +75,10 @@ const createGallery = (data) => {
 
 getCategories().then((data) => createCategories(data));
 getWorks().then((data) => createGallery(data));
+
+if (localStorage.token) {
+  console.log('le token existe :', localStorage.token)
+  filterContainer.style.display = 'none'
+}
 
 

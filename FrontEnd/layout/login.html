@@ -26,13 +26,18 @@
 		</nav>
 	</header>
 	<main>
-        <h2>Log in</h2>
-        <form action="post">
-       
-</form>
-<button id="forgotPasswordBtn">Mot de passe oublié</button>
-<div id="passwordButtonContainer"></div>
-</div>
+		<h2>Log in</h2>
+		<form id="formContainer">
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+			<button type="submit" value="Submit" id="submit-Button">Log In</button>
+		</form>
+		
+		<div id="passwordButtonContainer"></div>
+		<button id="forgotPasswordBtn">Mot de passe oublié</button>
+		</div>
 	</main>
 
 	<footer>
@@ -43,7 +48,7 @@
 		</nav>
 	</footer>
 	<script type="module" src="../js/login.js"></script>
- 
+
 </body>
 
 </html>
