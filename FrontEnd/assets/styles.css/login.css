@@ -49,16 +49,18 @@ table {
 /** end reset css**/
 body {
 	max-width: 1140px;
-    height: auto;
+  height: auto;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
-    position: relative;
+  position: relative;
 }
 header {
+  padding-top: unset;
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
+ 
 }
 section {
 	margin: 50px 0 139px
@@ -71,7 +73,7 @@ h1{
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
 }
 
 h1 > span {
@@ -84,25 +86,36 @@ h1 > span {
 h2{
     text-align: center;
     padding-top: 120px;
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
-    
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 30px;
+    color: #1D6154
+      
     
 }
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+  
 
 }
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+
    
 }
-form{
+#insta-logo{
+	width:22px;
+	color: #000000;
+}
+
+   a {
+  color: black;
+  text-decoration: none;}
+
+  form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +125,7 @@ form{
     width: 50%;
     margin: 0 auto;
    
-  
+  }
   
   input {
     width: 379px;
@@ -139,7 +152,9 @@ form{
  
  
  
-}
+ 
+ 
+
  
 #submit-Button {
     display: flex;
@@ -163,9 +178,8 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left:399px;
-    top: 105%;
+    padding-left: 44%;
+    padding-top: 3%;
     color: #3D3D3D;
     font-family: Work Sans;
     font-size: 14px;
@@ -179,10 +193,11 @@ form{
     
 }
 	
-footer nav ul {
+.footer  {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+  padding-top: 50%;
 }
 
 

@@ -1,4 +1,4 @@
-import { galleryContainer, filterContainer } from './components/domLinker.js';
+import { galleryContainer, filterContainer,portfolioLink,logoutButton } from './components/domLinker.js';
 import { getWorks, getCategories, } from './components/api.js';
 
 const createCategories = (data) => {
@@ -76,9 +76,27 @@ const createGallery = (data) => {
 getCategories().then((data) => createCategories(data));
 getWorks().then((data) => createGallery(data));
 
-if (localStorage.token) {
+//Condition to hide the filters
+/*if (localStorage.token) {
   console.log('le token existe :', localStorage.token)
   filterContainer.style.display = 'none'
+}*/
+// Condition to hide filters and show portfolio links if the user is logged in
+if (localStorage.token) {
+  filterContainer.style.display = 'none';
+  portfolioLink.forEach(link => {
+    link.style.display = 'block';
+  });
 }
 
+// Add an event listener to the logout button
+logoutButton.addEventListener('click', () => {
+  // Show filters and hide portfolio links before navigating to the index.html
+  filterContainer.style.display = 'block';
+  portfolioLink.forEach(link => {
+    link.style.display = 'none';
+  });
 
+  // Navigate to the index.html page
+  window.location.href = './index.html';
+});

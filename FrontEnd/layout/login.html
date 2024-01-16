@@ -2,53 +2,54 @@
 <html lang="fr">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-		rel="stylesheet">
-	<meta name="description" content="">
-	<link rel="stylesheet" href="../assets/styles.css/login.css">
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../assets/styles.css/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+        crossorigin="anonymous">
 </head>
 
 <body>
-	<header>
-		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-		<nav>
-			<ul>
-				<li>projets</li>
-				<li>contact</li>
-				<li>login</li>
-				<li><img src="../assets/icons/instagram.png" alt="Instagram"></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<h2>Log in</h2>
-		<form id="formContainer">
-			<label for="email">Email:</label>
-			<input type="text" id="email" name="email">
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password">
-			<button type="submit" value="Submit" id="submit-Button">Log In</button>
-		</form>
-		
-		<div id="passwordButtonContainer"></div>
-		<button id="forgotPasswordBtn">Mot de passe oublié</button>
-		</div>
-	</main>
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav>
+            <ul>
+                <li>projets</li>
+                <li>contact</li>
+				<li><a id="logout" href="../index.html">login</a></li>
+                
+                <li><img id="insta-logo"src="../assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
 
-	<footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
-	<script type="module" src="../js/login.js"></script>
+    <main>
+        <h2>Log in</h2>
+        <form id="formContainer">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit" id="submit-Button">Log In</button>
+        </form>
 
+        <div id="passwordButtonContainer"></div>
+        <button id="forgotPasswordBtn">Mot de passe oublié</button>
+    </main>
+
+    <footer class="footer">
+        <nav>
+            <ul>
+                <li>Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script type="module" src="../js/login.js"></script>
 </body>
 
 </html>
