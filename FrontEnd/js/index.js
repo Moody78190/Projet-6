@@ -1,4 +1,4 @@
-import { galleryContainer, filterContainer,portfolioLink,logoutButton } from './components/domLinker.js';
+import { galleryContainer, filterContainer,portfolioLink,logoutButton,modalgalleryContainer } from './components/domLinker.js';
 import { getWorks, getCategories, } from './components/api.js';
 
 const createCategories = (data) => {
@@ -100,3 +100,28 @@ logoutButton.addEventListener('click', () => {
   // Navigate to the index.html page
   window.location.href = './index.html';
 });
+
+//Modal
+const createmodalGallery = (data) => {
+  modalgalleryContainer.innerHTML = '';
+
+  data.forEach((item) => {
+    const figure = document.createElement('figure');
+    figure.setAttribute('data-id', item.id);
+
+    const img = document.createElement('img');
+    img.src = item.imageUrl;
+    img.alt = item.title;
+
+    const figcaption = document.createElement('figcaption');
+    figcaption.textContent = item.title;
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+
+    modalgalleryContainer.appendChild(figure);
+  });
+};
+
+getCategories().then((data) => createCategories(data));
+getWorks().then((data) => createmodalGallery(data));
