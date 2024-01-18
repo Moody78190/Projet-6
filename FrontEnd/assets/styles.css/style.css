@@ -95,6 +95,33 @@ nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
+#login{
+	
+    text-decoration: none;
+	background: transparent;
+	border: none;
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+}
+#logout{
+	text-decoration: none;
+	background: transparent;
+	border: none;
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+}
 #insta-logo{
 	width:22px;
 	color: #000000;
@@ -137,7 +164,7 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
-.portfolio-link{
+.portfolio-container{
 	margin: -26px;
     gap: 10px;
     display: flex;
@@ -146,7 +173,7 @@ li:hover {
     color: #000;
 	
 }
-#portfolio-a{
+#portfolio-link{
 	text-align: center;
 	font-family: Work Sans;
 	font-size: 14px;
@@ -155,7 +182,7 @@ li:hover {
 	line-height: normal;
 
 }
-.filtres{
+.filters{
 	display: flex;
 	justify-content:center ;
 	margin-top: 60px;
@@ -252,3 +279,71 @@ footer nav ul {
 	margin: 2em
 }
 
+/*modal*/
+.modal{
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+
+.modal-wrapper{
+	
+	width: 630px;
+	height: 688px;
+	border-radius: 10px;
+	background:white;
+}
+
+#modal-title{
+	padding-top: 60px;
+	color: #000;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+.js-modal-close{
+	background: none;
+	border: none;
+	position: absolute;
+    top: 4%;
+    left: 67%;
+    font-size: 24px;
+}
+
+.modal-gallery {
+	padding-top: 80px;
+    padding-left: 80px;
+    width: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.modal-gallery img {
+	width: 100%;
+
+}
+
+#modal-button{
+	position: fixed;
+	top: 87%;
+	left: 43%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 237px;
+	height: 36px;
+	color: white;
+	border-radius: 60px;
+	background: #1D6154;
+	box-shadow: transparent;
+}

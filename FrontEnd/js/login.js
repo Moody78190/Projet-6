@@ -1,4 +1,4 @@
-import { formContainer, email, password } from "./components/domLinker.js";
+import { formContainer, email, password} from "./components/domLinker.js";
 import { postLogin } from "./components/api.js";
 
 formContainer.addEventListener('submit', e => {
@@ -10,3 +10,7 @@ formContainer.addEventListener('submit', e => {
             window.location.href = '../index.html'
         }).catch(error => alert(error))
 })
+
+
+
+

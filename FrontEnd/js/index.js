@@ -1,4 +1,4 @@
-import { galleryContainer, filterContainer,portfolioLink,logoutButton,modalgalleryContainer } from './components/domLinker.js';
+import { galleryContainer, filterContainer,portfolioContainer,modalgalleryContainer} from './components/domLinker.js';
 import { getWorks, getCategories, } from './components/api.js';
 
 const createCategories = (data) => {
@@ -76,32 +76,60 @@ const createGallery = (data) => {
 getCategories().then((data) => createCategories(data));
 getWorks().then((data) => createGallery(data));
 
-//Condition to hide the filters
-/*if (localStorage.token) {
-  console.log('le token existe :', localStorage.token)
-  filterContainer.style.display = 'none'
-}*/
-// Condition to hide filters and show portfolio links if the user is logged in
-if (localStorage.token) {
-  filterContainer.style.display = 'none';
-  portfolioLink.forEach(link => {
-    link.style.display = 'block';
-  });
-}
 
-// Add an event listener to the logout button
-logoutButton.addEventListener('click', () => {
-  // Show filters and hide portfolio links before navigating to the index.html
-  filterContainer.style.display = 'block';
-  portfolioLink.forEach(link => {
-    link.style.display = 'none';
-  });
 
-  // Navigate to the index.html page
-  window.location.href = './index.html';
-});
 
-//Modal
+
+  //Condition to hide the filters
+  if (localStorage.token) {
+    console.log('le token existe :', localStorage.token)
+    filterContainer.style.display = 'none'
+  };
+    
+  
+
+//Modal//
+let modal = null
+
+const openModal = function (e) {
+  e.preventDefault()
+  const target = document.querySelector( e.target.getAttribute('href'))
+  target.style.display = null
+  target.removeAttribute('aria-hidden')
+  target.setAttribute('aria-modal','true')
+  modal = target
+  modal.addEventListener('click', closeModal)
+  modal.querySelector('.js-modal-close').addEventListener('click',closeModal)
+  modal.querySelector('.js-modal-stop').addEventListener('click',stopPropagation)
+  
+ }
+
+const closeModal = function (e) {
+  if (modal === null) return
+  e.preventDefault()
+  modal.style.display = 'none'
+  modal.setAttribute('aria-modal','true')
+  modal.removeAttribute('aria-hidden')
+  modal.addEventListener('click', closeModal)
+  modal.querySelector('.js-modal-close').removeEventListener('click',closeModal)
+  modal.querySelector('.js-modal-stop').removeEventListener('click',stopPropagation)
+  modal = null
+ }
+ 
+ const stopPropagation = function(e){
+  e.stopPropagation()
+ }
+ 
+document.querySelectorAll('.js-modal').forEach(a => {
+  a.addEventListener('click', openModal)
+  
+})
+
+/**Modal-gallery**/
+/**
+ * Generate HTML content based on retrieved data
+ * @param {Array} data - data from api get /works
+ */
 const createmodalGallery = (data) => {
   modalgalleryContainer.innerHTML = '';
 
@@ -117,7 +145,7 @@ const createmodalGallery = (data) => {
     figcaption.textContent = item.title;
 
     figure.appendChild(img);
-    figure.appendChild(figcaption);
+   
 
     modalgalleryContainer.appendChild(figure);
   });
@@ -125,3 +153,10 @@ const createmodalGallery = (data) => {
 
 getCategories().then((data) => createCategories(data));
 getWorks().then((data) => createmodalGallery(data));
+
+
+
+
+
+
+
