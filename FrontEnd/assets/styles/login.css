@@ -150,13 +150,7 @@ nav li {
     line-height: normal;
   }
  
- 
- 
- 
- 
-
- 
-#submit-Button {
+ #submit-Button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,3 +193,5 @@ nav li {
 	margin: 2em;
   padding-top: 50%;
 }
+
+

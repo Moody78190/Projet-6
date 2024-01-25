@@ -148,6 +148,31 @@ header {
 	margin: 50px 0
 }
 
+.banner-container {
+	height: 59px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	background-color: #000;
+
+
+}
+
+#fa-pen {
+	color: white;
+}
+
+#banner-link {
+	color: #FFF;
+	font-family: "Work Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+}
+
 section {
 	margin: 50px 0 139px
 }
@@ -267,11 +292,12 @@ li:hover {
 }
 
 .portfolio-container {
-	margin: -26px;
+	margin: -48px;
+	margin-bottom: 40px;
 	gap: 10px;
 	display: none;
 	justify-content: center;
-	padding-left: 395px;
+	padding-left: 340px;
 	color: #000;
 }
 
@@ -291,7 +317,6 @@ li:hover {
 	margin-top: 60px;
 	margin-bottom: 50px;
 	height: 37px;
-
 	gap: 15px;
 }
 
@@ -406,7 +431,9 @@ footer nav ul {
 }
 
 .modal-wrapper {
-
+	display: flex;
+	justify-content: center;
+	position: relative;
 	width: 630px;
 	height: 688px;
 	border-radius: 10px;
@@ -428,9 +455,9 @@ footer nav ul {
 	background: none;
 	border: none;
 	position: absolute;
-	top: 4%;
-	left: 67%;
-	font-size: 24px;
+	top: 5%;
+	left: 90%;
+	font-size: 20px;
 }
 
 .modal-gallery {
@@ -441,6 +468,7 @@ footer nav ul {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+
 }
 
 .modal-gallery img {
@@ -449,9 +477,9 @@ footer nav ul {
 }
 
 #modal-button {
-	position: fixed;
-	top: 87%;
-	left: 43%;
+	position: absolute;
+	top: 88%;
+	left: 32%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -467,9 +495,192 @@ figure {
 	position: relative;
 }
 
-.modal-gallery .trash-can {
+.trash-can {
 	width: auto;
 	position: absolute;
 	top: 5px;
-	right: 5px;
+	right: -25px;
+	width: 17px;
+	height: 17px;
+	color: white;
+
+}
+
+/*Second-modal*/
+
+
+
+.second-modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.30);
+}
+
+.second-modal-wrapper {
+	display: flex;
+	position: relative;
+	width: 630px;
+	height: 688px;
+	border-radius: 10px;
+	background: white;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+#second-modal-title {
+	padding-top: 60px;
+	padding-bottom: 30px;
+	color: #000;
+	text-align: center;
+	font-family: "Work Sans";
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.js-second-modal-close {
+	background: none;
+	border: none;
+	position: absolute;
+	top: 5%;
+	left: 90%;
+	font-size: 20px;
+}
+
+.upload-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 420px;
+	height: 169px;
+	padding-bottom: 30px;
+	border-radius: 3px;
+	background-color: #E8F1F6;
+}
+
+.fa-solid {
+	display: flex;
+	position: absolute;
+	left: 5%;
+	font-size: 21px;
+	position: absolute;
+	top: 5%;
+	right: 20%;
+	font-size: 21px;
+}
+
+.fa-regular {
+	display: flex;
+	font-size: 76px;
+	justify-content: center;
+	margin-bottom: -55px;
+	color: #B9C5CC;
+
+
+
+}
+
+.button-add-photo {
+	width: 173px;
+	height: 36px;
+	margin-top: 65px;
+	border-radius: 50px;
+	background-color: #CBD6DC;
+	border-color: transparent;
+	color: #306685;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: center;
+}
+
+p {
+	font-family: Work Sans;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 12px;
+	letter-spacing: 0em;
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: -30px;
+
+}
+
+.labels {
+	display: flex;
+	flex-direction: column;
+}
+
+#title-label {
+	padding-bottom: 10px;
+	padding-top: 20px;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+#title-input {
+
+	Width: 420px;
+	Height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px #00000017;
+
+}
+
+#category-Label {
+	padding-bottom: 10px;
+	padding-top: 20px;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: left;
+
+
+}
+
+#category-Input {
+	Width: 420px;
+	Height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px #00000017;
+
+}
+
+
+input[type="file"] {
+	display: none;
+}
+
+#button-validate {
+	position: absolute;
+	top: 88%;
+	left: 32%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 237px;
+	height: 36px;
+	color: white;
+	border-radius: 60px;
+	background: #A7A7A7;
+	border: transparent;
+	box-shadow: transparent;
 }

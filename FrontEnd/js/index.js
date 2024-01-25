@@ -1,5 +1,5 @@
-import { galleryContainer, filterContainer, portfolioContainer, modalgalleryContainer, aLogin, aOpenModal } from './components/domLinker.js';
-import { getWorks, getCategories, } from './components/api.js';
+import { galleryContainer, filterContainer,modalgalleryContainer, aLogin, aOpenModal,bannerContainer,modalformContainer} from './components/domLinker.js';
+import { getWorks, getCategories,deleteWorks} from './components/api.js';
 
 const createCategories = (data) => {
   // Create the "All" button and set it as active by default
@@ -70,13 +70,17 @@ const createGallery = (data, container = galleryContainer, isModal = false) => {
       figcaption.textContent = item.title;
       figure.appendChild(figcaption);
     } else {
-      const icon = document.createElement('img')
-      icon.src = `./assets/icons/trash-can-solid.png`
-      icon.alt = "trashcan"
-      icon.setAttribute('class', "trash-can")
-      figure.appendChild(icon)
+      const icon = document.createElement('img');
+      icon.src = `./assets/icons/trash-can-solid.svg`;
+      icon.alt = "trashcan";
+      icon.setAttribute('class', "trash-can");
+      figure.appendChild(icon);
 
-      icon.addEventListener('click', () => { })
+       icon.addEventListener('click', (e) => { 
+        deleteWorks(item.id).then(() => {
+            window.location.assign('http://127.0.0.1:8080/index.html#modal');
+        });
+      });
     }
 
     container.appendChild(figure);
@@ -85,12 +89,14 @@ const createGallery = (data, container = galleryContainer, isModal = false) => {
 
 // Page Admin
 if (localStorage.token) {
-  console.log('le token existe :', localStorage.token)
-  filterContainer.style.display = 'none'
-  aLogin.innerHTML = 'Logout'
-  aOpenModal.style.display = 'flex'
+  console.log('le token existe :', localStorage.token);
+  filterContainer.style.display = 'none';
+  bannerContainer.style.display = 'flex';
+  aLogin.innerHTML = 'Logout';
+  aOpenModal.style.display = 'flex';
+} else {
+  bannerContainer.style.display = 'none';
 };
-
 aLogin.addEventListener('click', () => {
   localStorage.removeItem('token')
 })
@@ -139,3 +145,6 @@ getWorks().then((data) => {
   createGallery(data)
   createGallery(data, modalgalleryContainer, true)
 });
+
+//SEcond-Modal//
+

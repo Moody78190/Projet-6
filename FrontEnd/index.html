@@ -12,13 +12,16 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
 <body>
+	<!--Banner-->
+	<banner class="banner-container">
+		<i id="fa-pen" class="fa-solid fa-pen-to-square"></i>
+		<a id="banner-link" href="#" class="js-edition"> Mode édition</a>
+
+	</banner>
 	<!--Modal-->
 	<aside id="modal" class="modal" aria-hidden="true" role="dialogue" aria-label="modal-title" style="display:none;">
 
@@ -26,9 +29,51 @@
 			<button class="js-modal-close"><i id="fa-mark" class="fa-solid fa-xmark"></i></button>
 			<h2 id="modal-title">Galerie photo</h2>
 			<div class="modal-gallery">
-
 			</div>
-			<button id="modal-button">Ajoutez une photo</button>
+
+			<a href="#Second-modal"><button id="modal-button">Ajoutez une photo</button></a>
+	</aside>
+	<!--Second-Modal-->
+	<aside id="second-modal" class="second-modal" aria-hidden="true" role="dialogue" aria-label="modal-title"
+		style="display:flex;">
+		<form id="modal-form-container">
+			<div class="second-modal-wrapper js-modal-stop">
+				<button class="js-second-modal-close"><i id="fa-mark" class="fa-solid fa-xmark"></i></button>
+				<a href="#modal"><i class="fa-solid fa-arrow-left"></i></a>
+				<h2 id="second-modal-title">Ajout photo</h2>
+				<form action="" method="post" enctype="multipart/form-data" class="js-add-photo">
+					<div class="upload-wrapper">
+						<i id="fa-image" class="fa-regular fa-image"></i>
+						<label for="file-upload" class="custom-file-upload">
+							<button class="button-add-photo">
+								+ Ajouter photo
+							</button>
+							<p>jpg, png : 4mo max</p>
+					</div>
+					</label>
+					<input id="file-upload" type="file" />
+
+					<br />
+					<div class="labels">
+						<label id="title-label" for="alt">Titre</label>
+						<input id="title-input" type="text" name="alt" id="alt" placeholder="" />
+
+						<br />
+						<label id="category-Label" for="category-Label">Catégories </label>
+						<select id="category-Input" name="category-Input">
+							<option value="category1"></option>
+							<option value="category2"></option>
+							<option value="category3"></option>
+
+						</select>
+					</div>
+					<input id="button-validate" type="submit" value="Valider" />
+				</form>
+			</div>
+
+
+		</form>
+		</div>
 
 	</aside>
 	<header>
