@@ -14,3 +14,11 @@ export const modalformContainer = document.getElementById('modal-form-container'
 export const formContainer = document.querySelector('#formContainer');
 export const email = document.getElementById('email')
 export const password = document.getElementById('password')
+
+/*** modal ****/
+export const modal = document.getElementById('modal')
+export const secondModal = document.getElementById('second-modal')
+export const closeModal = document.querySelector('.js-modal-close')
+export const secondModalClose = document.querySelector('.js-second-modal-close')
+export const btnOpenSecondModal = document.getElementById('modal-button')
+export const backArrow = document.getElementById('back-arrow')

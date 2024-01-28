@@ -22,38 +22,24 @@ export const postLogin = data => fetch(URL_LOGIN, {
     }
     return res.json()
 });
-    //Delete request//
+//Delete request//
 
-        export const deleteWorks = (worksId) => {
-        const authToken = localStorage.getItem('token');
-    
-        // Ajout d'un console.log pour vérifier si le token existe
-        console.log('Token existant :', authToken);
-    
-        const apiUrl = `http://localhost:5678/api/works/1/${worksId}`;
-    
-        return fetch(apiUrl, {
-            method: 'DELETE',
-            headers: {
-                'Accept': '*/*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${authToken}`
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
-            }
-            return;
-        });
-    };
-
-  
+export const deleteWorks = worksId =>
+    fetch(`http://localhost:5678/api/works/${worksId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        }
+    })
 
 
 
 
 
-    
-    
-    
+
+
+
+
+
+

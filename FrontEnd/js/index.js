@@ -1,5 +1,6 @@
-import { galleryContainer, filterContainer,modalgalleryContainer, aLogin, aOpenModal,bannerContainer,modalformContainer} from './components/domLinker.js';
-import { getWorks, getCategories,deleteWorks} from './components/api.js';
+import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, modalformContainer } from './components/domLinker.js';
+import { getWorks, getCategories, deleteWorks } from './components/api.js';
+import Modal from './components/modal.js';
 
 const createCategories = (data) => {
   // Create the "All" button and set it as active by default
@@ -76,9 +77,12 @@ const createGallery = (data, container = galleryContainer, isModal = false) => {
       icon.setAttribute('class', "trash-can");
       figure.appendChild(icon);
 
-       icon.addEventListener('click', (e) => { 
+      icon.addEventListener('click', (e) => {
         deleteWorks(item.id).then(() => {
-            window.location.assign('http://127.0.0.1:8080/index.html#modal');
+          getWorks().then((data) => {
+            createGallery(data)
+            createGallery(data, modalgalleryContainer, true)
+          });
         });
       });
     }
@@ -103,42 +107,45 @@ aLogin.addEventListener('click', () => {
 
 
 
+
 //Modal//
-let modal = null
+// let modal = null
 
-const openModal = function (e) {
-  e.preventDefault()
-  const target = document.querySelector(e.target.getAttribute('href'))
-  target.style.display = null
-  target.removeAttribute('aria-hidden')
-  target.setAttribute('aria-modal', 'true')
-  modal = target
-  modal.addEventListener('click', closeModal)
-  modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
-  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+// const openModal = e {
+//   e.preventDefault()
+//   const target = document.querySelector(e.target.getAttribute('href'))
+//   target.style.display = null
+//   target.removeAttribute('aria-hidden')
+//   target.setAttribute('aria-modal', 'true')
+//   modal = target
+//   modal.addEventListener('click', closeModal)
+//   modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
+//   modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
 
-}
+// }
 
-const closeModal = function (e) {
-  if (modal === null) return
-  e.preventDefault()
-  modal.style.display = 'none'
-  modal.setAttribute('aria-modal', 'true')
-  modal.removeAttribute('aria-hidden')
-  modal.addEventListener('click', closeModal)
-  modal.querySelector('.js-modal-close').removeEventListener('click', closeModal)
-  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
-  modal = null
-}
+// const closeModal = e {
+//   if (modal === null) {
+//     return
+//   }
+//   e.preventDefault()
+//   modal.style.display = 'none'
+//   modal.setAttribute('aria-modal', 'true')
+//   modal.removeAttribute('aria-hidden')
+//   modal.addEventListener('click', closeModal)
+//   modal.querySelector('.js-modal-close').removeEventListener('click', closeModal)
+//   modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
+//   modal = null
+// }
 
-const stopPropagation = function (e) {
-  e.stopPropagation()
-}
+// const stopPropagation = function (e) {
+//   e.stopPropagation()
+// }
 
-document.querySelectorAll('.js-modal').forEach(a => {
-  a.addEventListener('click', openModal)
+// document.querySelectorAll('.js-modal').forEach(a => {
+//   a.addEventListener('click', openModal)
 
-})
+// })
 
 getCategories().then((data) => createCategories(data));
 getWorks().then((data) => {
@@ -146,5 +153,5 @@ getWorks().then((data) => {
   createGallery(data, modalgalleryContainer, true)
 });
 
-//SEcond-Modal//
+Modal()
 
