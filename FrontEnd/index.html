@@ -95,14 +95,13 @@
 					<form action="" method="post" enctype="multipart/form-data" class="js-add-photo">
 						<div class="upload-wrapper">
 							<i id="fa-image" class="fa-regular fa-image"></i>
-							<label for="file-upload" class="custom-file-upload">
-								<button class="button-add-photo">
-									+ Ajouter photo
-								</button>
-								<p>jpg, png : 4mo max</p>
+							<label for="file-upload" class="custom-file-upload">+ Ajouter photo </label>
+							<input id="file-upload" type="file"  accept="image/png, image/jpg"/>
+							<img id="frame"/>
+							<p id="upload-content">jpg, png : 4mo max</p>
 						</div>
-						</label>
-						<input id="file-upload" type="file" />
+						
+						
 
 						<br />
 						<div class="labels">
@@ -111,11 +110,9 @@
 
 							<br />
 							<label id="category-Label" for="category-Label">Catégories </label>
-							<select id="category-Input" name="category-Input">
-								<option value="category1"></option>
-								<option value="category2"></option>
-								<option value="category3"></option>
-							</select>
+							<div class="select-container">
+								
+							</div>
 						</div>
 						<input id="button-validate" type="submit" value="Valider" />
 					</form>

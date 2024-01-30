@@ -564,9 +564,10 @@ figure {
 	align-items: center;
 	width: 420px;
 	height: 169px;
+	background-color: #E8F1F6;
 	padding-bottom: 30px;
 	border-radius: 3px;
-	background-color: #E8F1F6;
+	position: relative;
 }
 
 .fa-solid {
@@ -591,7 +592,10 @@ figure {
 
 }
 
-.button-add-photo {
+.custom-file-upload {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 173px;
 	height: 36px;
 	margin-top: 65px;
@@ -605,6 +609,14 @@ figure {
 	line-height: 16px;
 	letter-spacing: 0em;
 	text-align: center;
+}
+#frame{
+	display: none;
+	width: 129px;
+	height: 197px;
+	position: absolute;
+	top:1%;
+	background-size: cover;
 }
 
 p {
@@ -639,6 +651,7 @@ p {
 
 	Width: 420px;
 	Height: 51px;
+	padding-left: 10px;
 	border: none;
 	box-shadow: 0px 4px 14px 0px #00000017;
 
@@ -657,7 +670,7 @@ p {
 
 }
 
-#category-Input {
+.select-container {
 	Width: 420px;
 	Height: 51px;
 	border: none;
@@ -665,6 +678,20 @@ p {
 
 }
 
+
+#categorySelect{
+	Width: 434px;
+	Height: 51px;
+	border: none;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: left;
+	padding-left: 10px;
+
+}
 
 input[type="file"] {
 	display: none;

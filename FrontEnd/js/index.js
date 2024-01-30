@@ -1,4 +1,4 @@
-import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, modalformContainer } from './components/domLinker.js';
+import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, selectContainer } from './components/domLinker.js';
 import { getWorks, getCategories, deleteWorks } from './components/api.js';
 import Modal from './components/modal.js';
 
@@ -105,53 +105,38 @@ aLogin.addEventListener('click', () => {
   localStorage.removeItem('token')
 })
 
+const createSelectMenu = (data, selectContainer) => {
+  // Create the select element
+  const selectElement = document.createElement('select');
+  selectElement.id = 'categorySelect';
+  
+  // Add options using forEach
+  data.forEach(category => {
+      const option = document.createElement('option');
+      option.setAttribute('class', 'select-option');
+      option.value = category.id; 
+      option.textContent = category.name;
+      selectElement.appendChild(option); // Ajout de l'option à chaque itération
+  });
 
+  // Ajouter le select element à la page
+  selectContainer.appendChild(selectElement);
+};
 
+// Fetch categories from API and create select menu
+getCategories()
+  .then(data => createSelectMenu(data, selectContainer))
+  .catch(error => console.error('Error fetching categories:', error));
 
-//Modal//
-// let modal = null
-
-// const openModal = e {
-//   e.preventDefault()
-//   const target = document.querySelector(e.target.getAttribute('href'))
-//   target.style.display = null
-//   target.removeAttribute('aria-hidden')
-//   target.setAttribute('aria-modal', 'true')
-//   modal = target
-//   modal.addEventListener('click', closeModal)
-//   modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
-//   modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
-
-// }
-
-// const closeModal = e {
-//   if (modal === null) {
-//     return
-//   }
-//   e.preventDefault()
-//   modal.style.display = 'none'
-//   modal.setAttribute('aria-modal', 'true')
-//   modal.removeAttribute('aria-hidden')
-//   modal.addEventListener('click', closeModal)
-//   modal.querySelector('.js-modal-close').removeEventListener('click', closeModal)
-//   modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
-//   modal = null
-// }
-
-// const stopPropagation = function (e) {
-//   e.stopPropagation()
-// }
-
-// document.querySelectorAll('.js-modal').forEach(a => {
-//   a.addEventListener('click', openModal)
-
-// })
-
+// Assurez-vous que getWorks() est défini ailleurs dans votre code
 getCategories().then((data) => createCategories(data));
+
+
+
 getWorks().then((data) => {
-  createGallery(data)
-  createGallery(data, modalgalleryContainer, true)
+  createGallery(data);
+  createGallery(data, modalgalleryContainer, true);
 });
 
-Modal()
-
+// Assurez-vous que Modal() est défini ailleurs dans votre code
+Modal();
