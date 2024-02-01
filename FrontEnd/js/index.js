@@ -1,5 +1,5 @@
-import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, selectContainer } from './components/domLinker.js';
-import { getWorks, getCategories, deleteWorks } from './components/api.js';
+import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, selectContainer,submitButton } from './components/domLinker.js';
+import { getWorks, getCategories, deleteWorks, addWork } from './components/api.js';
 import Modal from './components/modal.js';
 
 const createCategories = (data) => {
@@ -119,9 +119,33 @@ const createSelectMenu = (data, selectContainer) => {
       selectElement.appendChild(option); // Ajout de l'option à chaque itération
   });
 
-  // Ajouter le select element à la page
+  // Ajouter le select element à la page 
   selectContainer.appendChild(selectElement);
 };
+ //Event listenner //
+submitButton.addEventListener('click', () => {
+  // Get data from your form fields or other sources
+  const image = document.getElementById('file-upload').files[0]; // Suppose you have a file input for the image
+  const title = document.getElementById('title-input').value; // Suppose you have an input for the title
+  const category = document.getElementById('categorySelect').value; // Suppose you have an input for the category
+
+  // Check if the data is valid before sending
+  if (image && title && category) {
+      // Send data to your addWork function
+      addWork(image, title, category)
+          .then(response => {
+              // Handle the response if necessary
+              console.log('Server response:', response);
+          })
+          .catch(error => {
+              // Handle errors
+              console.error('Error sending data:', error);
+          });
+  } else {
+      // Show an error message if required fields are empty
+      alert('Please fill in all required fields.');
+  }
+});
 
 // Fetch categories from API and create select menu
 getCategories()
