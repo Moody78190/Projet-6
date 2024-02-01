@@ -119,20 +119,20 @@ const createSelectMenu = (data, selectContainer) => {
       selectElement.appendChild(option); // Ajout de l'option à chaque itération
   });
 
-  // Ajouter le select element à la page 
+  // Add  select element to the page 
   selectContainer.appendChild(selectElement);
 };
  //Event listenner //
 submitButton.addEventListener('click', () => {
   
-  // Get data from your form fields or other sources
+  // Get data from the form fields 
   const image = document.getElementById('file-upload').files[0]; // Suppose you have a file input for the image
   const title = document.getElementById('title-input').value; // Suppose you have an input for the title
   const category = document.getElementById('categorySelect').value; // Suppose you have an input for the category
 
   // Check if the data is valid before sending
   if (image && title && category) {
-      // Send data to your addWork function
+      // Send data to addWork function
       addWork(image, title, category)
           .then(response => {
               // Handle the response if necessary
@@ -165,5 +165,5 @@ getWorks().then((data) => {
   createGallery(data, modalgalleryContainer, true);
 });
 
-// Assurez-vous que Modal() est défini ailleurs dans votre code
+
 Modal();
