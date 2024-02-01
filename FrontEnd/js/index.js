@@ -124,6 +124,7 @@ const createSelectMenu = (data, selectContainer) => {
 };
  //Event listenner //
 submitButton.addEventListener('click', () => {
+  
   // Get data from your form fields or other sources
   const image = document.getElementById('file-upload').files[0]; // Suppose you have a file input for the image
   const title = document.getElementById('title-input').value; // Suppose you have an input for the title
@@ -144,7 +145,9 @@ submitButton.addEventListener('click', () => {
   } else {
       // Show an error message if required fields are empty
       alert('Please fill in all required fields.');
-  }
+  
+  
+    }
 });
 
 // Fetch categories from API and create select menu
@@ -152,7 +155,7 @@ getCategories()
   .then(data => createSelectMenu(data, selectContainer))
   .catch(error => console.error('Error fetching categories:', error));
 
-// Assurez-vous que getWorks() est défini ailleurs dans votre code
+
 getCategories().then((data) => createCategories(data));
 
 

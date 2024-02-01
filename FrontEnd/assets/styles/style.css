@@ -160,7 +160,8 @@ header {
 }
 
 #fa-pen {
-	color: white;
+	color: black;
+	font-size: 14px;
 }
 
 #banner-link {
@@ -547,7 +548,13 @@ figure {
 	font-weight: 400;
 	line-height: normal;
 }
+#back-arrow{
+	position: absolute;
+    top: 5%;
+    left: 6%;
+    font-size: 21px;
 
+}
 .js-second-modal-close {
 	background: none;
 	border: none;
@@ -570,15 +577,15 @@ figure {
 	position: relative;
 }
 
-.fa-solid {
+#fa-pen-to-square {
+	color: white;
+	font-size: 14px;
 	display: flex;
 	position: absolute;
-	left: 5%;
-	font-size: 21px;
-	position: absolute;
-	top: 5%;
-	right: 20%;
-	font-size: 21px;
+	left:43.5%;
+	top: 3.2%;
+
+	
 }
 
 .fa-regular {
@@ -619,7 +626,7 @@ figure {
 	background-size: cover;
 }
 
-p {
+#upload-content {
 	font-family: Work Sans;
 	font-size: 10px;
 	font-weight: 400;
