@@ -40,7 +40,7 @@
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
-				<p >Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
+				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
 					finale du chantier.</p>
 				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
 					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
@@ -87,21 +87,21 @@
 		</aside>
 		<!--Second-Modal-->
 		<aside id="second-modal" class="second-modal" aria-hidden="true" role="dialogue" aria-label="modal-title">
-			<form id="modal-form-container">
+			<div id="modal-form-container">
 				<div class="second-modal-wrapper js-modal-stop">
 					<button class="js-second-modal-close"><i id="fa-mark" class="fa-solid fa-xmark"></i></button>
 					<a href="#modal"><i id="back-arrow" class="fa-solid fa-arrow-left"></i></a>
 					<h2 id="second-modal-title">Ajout photo</h2>
-					<form action="" method="post" enctype="multipart/form-data" class="js-add-photo">
+					<form id="form-add-photo" enctype="multipart/form-data" class="js-add-photo">
 						<div class="upload-wrapper">
 							<i id="fa-image" class="fa-regular fa-image"></i>
 							<label for="file-upload" class="custom-file-upload">+ Ajouter photo </label>
-							<input id="file-upload" type="file"  accept="image/png, image/jpg"/>
-							<img id="frame"/>
+							<input id="file-upload" type="file" accept="image/png, image/jpg" />
+							<img id="frame" />
 							<p id="upload-content">jpg, png : 4mo max</p>
 						</div>
-						
-						
+
+
 
 						<br />
 						<div class="labels">
@@ -111,7 +111,7 @@
 							<br />
 							<label id="category-Label" for="category-Label">Catégories </label>
 							<div class="select-container">
-								
+								<select id="categorySelect"></select>
 							</div>
 						</div>
 						<input id="button-validate" type="submit" value="Valider" />
@@ -119,7 +119,7 @@
 				</div>
 
 
-			</form>
+			</div>
 			</div>
 
 		</aside>

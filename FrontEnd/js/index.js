@@ -1,5 +1,8 @@
-import { galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer, aOpenModal, selectContainer,submitButton } from './components/domLinker.js';
-import { getWorks, getCategories, deleteWorks, addWork } from './components/api.js';
+import {
+  galleryContainer, filterContainer, modalgalleryContainer, aLogin, bannerContainer,
+  aOpenModal, selectContainer, formCategory
+} from './components/domLinker.js';
+import { getWorks, getCategories, deleteWorks } from './components/api.js';
 import Modal from './components/modal.js';
 
 const createCategories = (data) => {
@@ -105,54 +108,21 @@ aLogin.addEventListener('click', () => {
   localStorage.removeItem('token')
 })
 
-const createSelectMenu = (data, selectContainer) => {
-  // Create the select element
-  const selectElement = document.createElement('select');
-  selectElement.id = 'categorySelect';
-  
+const createSelectMenu = data => {
   // Add options using forEach
   data.forEach(category => {
-      const option = document.createElement('option');
-      option.setAttribute('class', 'select-option');
-      option.value = category.id; 
-      option.textContent = category.name;
-      selectElement.appendChild(option); // Ajout de l'option à chaque itération
+    const option = document.createElement('option');
+    option.setAttribute('class', 'select-option');
+    option.value = category.id;
+    option.textContent = category.name;
+    formCategory.appendChild(option); // Ajout de l'option à chaque itération
   });
-
-  // Add  select element to the page 
-  selectContainer.appendChild(selectElement);
 };
- //Event listenner //
-submitButton.addEventListener('click', () => {
-  
-  // Get data from the form fields 
-  const image = document.getElementById('file-upload').files[0]; // Suppose you have a file input for the image
-  const title = document.getElementById('title-input').value; // Suppose you have an input for the title
-  const category = document.getElementById('categorySelect').value; // Suppose you have an input for the category
 
-  // Check if the data is valid before sending
-  if (image && title && category) {
-      // Send data to addWork function
-      addWork(image, title, category)
-          .then(response => {
-              // Handle the response if necessary
-              console.log('Server response:', response);
-          })
-          .catch(error => {
-              // Handle errors
-              console.error('Error sending data:', error);
-          });
-  } else {
-      // Show an error message if required fields are empty
-      alert('Please fill in all required fields.');
-  
-  
-    }
-});
 
 // Fetch categories from API and create select menu
 getCategories()
-  .then(data => createSelectMenu(data, selectContainer))
+  .then(data => createSelectMenu(data))
   .catch(error => console.error('Error fetching categories:', error));
 
 

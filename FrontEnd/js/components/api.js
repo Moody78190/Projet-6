@@ -35,13 +35,8 @@ export const deleteWorks = worksId =>
 
 //POST REQUEST//
 
-export const addWork = (image, title, category) => {
-    const formData = new FormData();
-    formData.append('image', image);
-    formData.append('title', title);
-    formData.append('category', category);
-
-    return fetch(`http://localhost:5678/api/works`, {
+export const addWork = formData =>
+    fetch(`http://localhost:5678/api/works`, {
         method: 'POST',
         body: formData,
         headers: {
@@ -49,7 +44,7 @@ export const addWork = (image, title, category) => {
             'Authorization': `Bearer ${localStorage.token}`
         }
     });
-}
 
-   
+
+
 
