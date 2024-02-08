@@ -136,7 +136,7 @@ table {
 
 /** end reset css**/
 body {
-	max-width: 1140px;
+	max-width: 100%;
 	margin: auto;
 	font-family: 'Work Sans';
 	font-size: 14px;
@@ -145,23 +145,28 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 95px 0
 }
 
 .banner-container {
-	height: 59px;
 	display: flex;
+	height: 59px;
 	justify-content: center;
 	align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
 	gap: 10px;
 	background-color: #000;
 
 
 }
+.banner-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-#fa-pen {
-	color: black;
-	font-size: 14px;
 }
 
 #banner-link {
@@ -173,14 +178,26 @@ header {
 	line-height: normal;
 
 }
+#fa-pen {
+	color: white;
+	font-size: 14px;
+	display: flex;
+	position: absolute;
+	left:43.5%;
+
+
+	
+}
 
 section {
-	margin: 50px 0 139px
+	padding: 15%;
+    margin: -139px 0 20px;
 }
 
 h1 {
 	display: flex;
 	flex-direction: column;
+	padding-left: 10%;
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
@@ -200,11 +217,14 @@ h2 {
 	font-size: 30px;
 	color: #1D6154
 }
-
+nav{
+	padding-right: 10%;
+}
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	
 
 }
 
@@ -350,7 +370,7 @@ li:hover {
 }
 
 .gallery {
-	padding-top: 80px;
+	padding-top: 20px;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -360,6 +380,7 @@ li:hover {
 
 .gallery img {
 	width: 100%;
+	height: 407px;
 
 }
 
@@ -443,7 +464,8 @@ footer nav ul {
 }
 
 #modal-title {
-	padding-top: 60px;
+	padding-bottom: 10px;
+	margin-top: -125px;
 	color: #000;
 	text-align: center;
 	font-family: "Work Sans";
@@ -457,15 +479,15 @@ footer nav ul {
 	background: none;
 	border: none;
 	position: absolute;
-	top: 5%;
-	left: 90%;
+	top: 4%;
+	left: 92%;
 	font-size: 20px;
 }
 
 .modal-gallery {
-	padding-top: 80px;
-	padding-left: 80px;
-	width: 75%;
+	padding-top: 40px;
+	padding-left: 100px;
+	width: 70%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -475,13 +497,15 @@ footer nav ul {
 
 .modal-gallery img {
 	width: 100%;
+	height: 103px;
+	
 
 }
 
 #modal-button {
 	position: absolute;
 	top: 88%;
-	left: 32%;
+	left:42%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -498,15 +522,32 @@ figure {
 }
 
 .trash-can {
-	width: auto;
-	position: absolute;
-	top: 5px;
-	right: -25px;
-	width: 17px;
-	height: 17px;
-	color: white;
-
+	display: flex;
+	padding-top: 2px;
+    padding-right: 1px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color: white;
+    background-color: black;
+    width: 17px;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
 }
+.line{
+	position: absolute;
+    top: 82%;
+    border: 1px solid #B3B3B3;
+    width: 420px;
+ 
+}
+	
+
+
+
 
 /*Second-modal*/
 
@@ -576,19 +617,17 @@ figure {
 	border-radius: 3px;
 	position: relative;
 }
-
-#fa-pen-to-square {
-	color: white;
-	font-size: 14px;
+#fa-image{
 	display: flex;
-	position: absolute;
-	left:43.5%;
-	top: 3.2%;
-
-	
+    position: absolute;
+    top: 12%;
+    font-size: 69px;
+    color: #B9C5CC;
 }
 
-.fa-regular {
+
+
+#fa-pen-to-square {
 	display: flex;
 	font-size: 76px;
 	justify-content: center;
@@ -703,7 +742,13 @@ figure {
 input[type="file"] {
 	display: none;
 }
+.line-second-modal{
+	position: absolute;
+    top: 87%;
+    border: 1px solid #B3B3B3;
+    width: 420px;
 
+}
 #button-validate {
 	position: absolute;
 	top: 88%;

@@ -18,9 +18,10 @@
 <body>
 	<!--Banner-->
 	<banner class="banner-container">
-		<i id="fa-pen-to-square" class="fa-regular fa-pen-to-square"></i>
+		<div class="banner-content">
+		<i id="fa-pen" class="fa-regular fa-pen-to-square"></i>
 		<a id="banner-link" href="#" class="js-edition"> Mode édition</a>
-
+	</div>
 	</banner>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -52,7 +53,7 @@
 		<section id="portfolio">
 			<h2>Mes Projets</h2>
 			<div class="portfolio-container">
-				<i id="fa-pen" class="fa-regular fa-pen-to-square"></i>
+				<i id=" fa-pen-to-square" class="fa-regular fa-pen-to-square"></i>
 				<a id="open-modal" href="#modal" class="js-modal">Modifier</a>
 			</div>
 			<div class="filters">
@@ -78,11 +79,19 @@
 		<!--Modal-->
 		<aside id="modal" class="modal" aria-hidden="true" role="dialogue" aria-label="modal-title">
 			<div class="modal-wrapper js-modal-stop">
+				
 				<button class="js-modal-close"><i id="fa-mark" class="fa-solid fa-xmark"></i></button>
+				
 				<h2 id="modal-title">Galerie photo</h2>
+				
 				<div class="modal-gallery">
+					<div class="trash"></div>
+				<i class="fa-solid fa-trash-can"></i>
+			</div>
+	
 				</div>
-
+				<div class="line"></div>
+		
 				<a href="#Second-modal"><button id="modal-button">Ajoutez une photo</button></a>
 		</aside>
 		<!--Second-Modal-->
@@ -114,6 +123,7 @@
 								<select id="categorySelect"></select>
 							</div>
 						</div>
+						<div class="line-second-modal"></div>
 						<input id="button-validate" type="submit" value="Valider" />
 					</form>
 				</div>

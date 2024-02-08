@@ -5,7 +5,6 @@ import {
 } from "./domLinker.js";
 import { addWork } from "./api.js";
 
-
 const openFirstModal = () => {
     modal.style.display = "flex";
     secondModal.style.display = "none";
@@ -31,83 +30,77 @@ const openFrame = () => {
     uploadContent.style.display = "none";
 };
 
-let image, title, category
-
+let image, title, category;
 
 const Modal = () => {
-    image = fileUpload.files[0]; // Suppose you have a file input for the image
-    title = formTitle.value; // Suppose you have an input for the title
-    category = formCategory.value; // Suppose you have an input for the category
+    const resetForm = () => {
+       formAddPhoto.reset();
+        submitButton.setAttribute('disabled', true);
+        submitButton.style.background = "#A7A7A7";
+    };
 
     const checkFormIsValid = () => {
-        image = fileUpload.files[0]; // Suppose you have a file input for the image
-        title = formTitle.value; // Suppose you have an input for the title
-        category = formCategory.value; // Suppose you have an input for the category
+        image = fileUpload.files[0]; 
+        title = formTitle.value; 
+        category = formCategory.value;
 
         if (image && (title.length > 0) && category) {
-            submitButton.removeAttribute('disabled')
-            submitButton.style.background = "#1D6154"
+            if (image.size > 4 * 1024 * 1024) { 
+                alert('La taille du fichier dépasse 4 Mo. Veuillez sélectionner un fichier plus petit.');
+                submitButton.setAttribute('disabled', true);
+                submitButton.style.background = "#A7A7A7";
+            } else {
+                submitButton.removeAttribute('disabled');
+                submitButton.style.background = "#1D6154";
+            }
         } else {
-            submitButton.setAttribute('disabled', true)
-            submitButton.style.background = "#A7A7A7"
+            submitButton.setAttribute('disabled', true);
+            submitButton.style.background = "#A7A7A7";
         }
-
-        console.log(`
-          image: ${image}
-          title: ${title}
-          category: ${category}
-        `)
-    }
-
+    };
+    
     // Modal listener
-    aOpenModal.addEventListener('click', () => openFirstModal());
-    closeModal.addEventListener('click', () => closeModals());
-    btnOpenSecondModal.addEventListener('click', () => openSecondModal());
-    secondModalClose.addEventListener('click', () => closeModals());
-    backArrow.addEventListener('click', () => openFirstModal());
-    customFileUpload.addEventListener('click', () => openFrame());
+    aOpenModal.addEventListener('click', openFirstModal);
+    closeModal.addEventListener('click', closeModals);
+    btnOpenSecondModal.addEventListener('click', openSecondModal);
+    secondModalClose.addEventListener('click', closeModals);
+    backArrow.addEventListener('click', openFirstModal);
+    customFileUpload.addEventListener('click', openFrame);
     fileUpload.addEventListener('change', () => {
         const [file] = fileUpload.files
-        // const file = fileUpload.files[0]
         frame.src = URL.createObjectURL(file)
-        checkFormIsValid()
+        checkFormIsValid();
     });
 
-    formTitle.addEventListener('input', () => checkFormIsValid())
+    formTitle.addEventListener('input', checkFormIsValid);
+    formCategory.addEventListener('change', checkFormIsValid);
 
-    formCategory.addEventListener('change', () => checkFormIsValid())
-
-    //Event listenner //
+    // Event listener
     formAddPhoto.addEventListener('submit', e => {
-        e.preventDefault()
+        e.preventDefault();
 
-        // Get data from the form fields 
-        image = fileUpload.files[0]; // Suppose you have a file input for the image
-        title = formTitle.value; // Suppose you have an input for the title
-        category = formCategory.value; // Suppose you have an input for the category
+        image = fileUpload.files[0];
+        title = formTitle.value;
+        category = formCategory.value;
 
-        // Check if the data is valid before sending
         if (image && title && category) {
             const formData = new FormData();
             formData.append('image', image);
             formData.append('title', title);
             formData.append('category', category);
 
-            // Send data to addWork function
             addWork(formData)
                 .then(response => {
-                    // Handle the response if necessary
                     console.log('Server response:', response);
+                    resetForm(); 
                 })
                 .catch(error => {
-                    // Handle errors
                     console.error('Error sending data:', error);
                 });
         } else {
-            // Show an error message if required fields are empty
             alert('Please fill in all required fields.');
         }
     });
+};
 
-}
 export default Modal;
