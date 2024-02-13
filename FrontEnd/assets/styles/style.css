@@ -498,6 +498,7 @@ footer nav ul {
 .modal-gallery img {
 	width: 100%;
 	height: 103px;
+	object-fit: cover;
 	
 
 }
@@ -527,7 +528,7 @@ figure {
     padding-right: 1px;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 5px;
     font-size: 10px;
     color: white;
     background-color: black;
