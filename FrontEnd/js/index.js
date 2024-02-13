@@ -10,7 +10,7 @@ const createCategories = (data) => {
   const buttonAll = document.createElement('button');
   buttonAll.setAttribute('class', 'button-filter active'); // Add the active class
   const spanAll = document.createElement('span');
-  spanAll.innerHTML = 'All';
+  spanAll.innerHTML = 'Tous';
 
   buttonAll.appendChild(spanAll);
   filterContainer.appendChild(buttonAll);
@@ -56,45 +56,45 @@ const createCategories = (data) => {
  * Generate HTML content based on retrieved data
  * @param {Array} data - data from api get /works
  */
-const createGallery = (data, container = galleryContainer, isModal = false) => {
+export const createGallery = (data, container = galleryContainer, isModal = false) => {
   container.innerHTML = '';
 
   data.forEach((item) => {
-      const figure = document.createElement('figure');
-      figure.setAttribute('data-id', item.id);
+    const figure = document.createElement('figure');
+    figure.setAttribute('data-id', item.id);
 
-      const img = document.createElement('img');
-      img.src = item.imageUrl;
-      img.alt = item.title;
+    const img = document.createElement('img');
+    img.src = item.imageUrl;
+    img.alt = item.title;
 
-      figure.appendChild(img);
+    figure.appendChild(img);
 
-      if (!isModal) {
-          const figcaption = document.createElement('figcaption');
-          figcaption.textContent = item.title;
-          figure.appendChild(figcaption);
-      } else {
-          // Create the trash-can icon only for the modal
-          const icon = document.createElement('i');
-          icon.classList.add('fa-solid', 'fa-trash-can','trash-can');
-          
-          // Add an event listener to the icon
-          icon.addEventListener('click', (e) => {
-              deleteWorks(item.id).then(() => {
-                  getWorks().then((data) => {
-                      // Update the gallery after deletion
-                      createGallery(data);
-                      createGallery(data, modalgalleryContainer, true);
-                  });
-              });
+    if (!isModal) {
+      const figcaption = document.createElement('figcaption');
+      figcaption.textContent = item.title;
+      figure.appendChild(figcaption);
+    } else {
+      // Create the trash-can icon only for the modal
+      const icon = document.createElement('i');
+      icon.classList.add('fa-solid', 'fa-trash-can', 'trash-can');
+
+      // Add an event listener to the icon
+      icon.addEventListener('click', (e) => {
+        deleteWorks(item.id).then(() => {
+          getWorks().then((data) => {
+            // Update the gallery after deletion
+            createGallery(data);
+            createGallery(data, modalgalleryContainer, true);
           });
-          
-          // Add the icon to the figure
-          figure.appendChild(icon);
-      }
+        });
+      });
 
-      // Add the figure to the container
-      container.appendChild(figure);
+      // Add the icon to the figure
+      figure.appendChild(icon);
+    }
+
+    // Add the figure to the container
+    container.appendChild(figure);
   });
 };
 
@@ -127,13 +127,11 @@ const createSelectMenu = data => {
 
 // Fetch categories from API and create select menu
 getCategories()
-  .then(data => createSelectMenu(data))
+  .then(data => {
+    createCategories(data)
+    createSelectMenu(data)
+  })
   .catch(error => console.error('Error fetching categories:', error));
-
-
-getCategories().then((data) => createCategories(data));
-
-
 
 getWorks().then((data) => {
   createGallery(data);
