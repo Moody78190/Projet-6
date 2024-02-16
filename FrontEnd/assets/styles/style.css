@@ -140,6 +140,8 @@ body {
 	margin: auto;
 	font-family: 'Work Sans';
 	font-size: 14px;
+	background-color: #FFFEF8;
+	;
 }
 
 header {
@@ -208,7 +210,7 @@ h1>span {
 	font-family: 'Work Sans';
 	font-size: 10px;
 	letter-spacing: 0.1em;
-	;
+	
 }
 
 h2 {
@@ -230,7 +232,7 @@ nav ul {
 
 nav li {
 	padding: 0 10px;
-	font-size: 1.2em;
+	
 }
 
 #login {
@@ -342,6 +344,7 @@ li:hover {
 }
 
 .button-filter {
+	
 	padding: 0px 20px 0px 20px;
 	border-radius: 60px;
 	border: 1px solid #1D6154;
@@ -381,39 +384,65 @@ li:hover {
 .gallery img {
 	width: 100%;
 	height: 407px;
+	object-fit: cover;
 
 }
 
 #contact {
 	width: 50%;
 	margin: auto;
+	padding-top: 0;
 }
 
 #contact>* {
 	text-align: center;
+	font-size: 16px;
+	
 
 }
 
 #contact h2 {
+	font-size: 30px;
+	margin-top: -130px;
 	margin-bottom: 20px;
 }
 
 #contact form {
-	text-align: left;
+	
 	margin-top: 30px;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+   	justify-items: center;
+    justify-content: center;
+}
+
+#name{
+	width: 379px;
+	height:51px;
+}
+#email{
+	width: 379px;
+	height:51px;
+}
+#message{
+	width: 379px;
+	height: 174px;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
+	font-size: 14px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 #contact label {
-	margin: 2em 0 1em 0;
+	justify-self: left;
+	margin: 2em 0 0.5em 0;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0em;
+	color: #3D3D3D;
 }
 
 #contact textarea {
@@ -421,23 +450,36 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+
 input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
 	margin: 2em auto;
-	width: 180px;
+	width: 179px;
+	height: 36px;
 	text-align: center;
 	border-radius: 60px;
 }
+footer nav{
+	padding-right:60px; 
+	
 
+}
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
-
+li{
+	font-family: Work Sans;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
 /*modal*/
 .modal {
 	position: fixed;
@@ -461,6 +503,7 @@ footer nav ul {
 	border-radius: 10px;
 	background: white;
 	flex-direction: column;
+	background-color: #FFFFFF;
 }
 
 #modal-title {
@@ -506,7 +549,7 @@ footer nav ul {
 #modal-button {
 	position: absolute;
 	top: 88%;
-	left:42%;
+	left: 42%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -515,6 +558,7 @@ footer nav ul {
 	color: white;
 	border-radius: 60px;
 	background: #1D6154;
+	border: transparent;
 	box-shadow: transparent;
 }
 
@@ -576,6 +620,7 @@ figure {
 	background: white;
 	flex-direction: column;
 	align-items: center;
+	background-color: #FFFFFF;
 
 }
 
@@ -664,6 +709,7 @@ figure {
 	position: absolute;
 	top:1%;
 	background-size: cover;
+	object-fit: cover;
 }
 
 #upload-content {
